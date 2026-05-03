@@ -1,5 +1,11 @@
-<ko-stage [config]="configStage">
+<div (dragover)="onDragOver($event)" (drop)="onDrop($event)" (mousewheel)="handleZoom($event)">
+<ko-stage #stage [config]="configStage">
     <ko-layer>
-        <ko-circle [config]="configCircle" />
+        <ko-image [config]="imageConfig()" (dragstart)="handleImageDrag($event)" />
+    </ko-layer>
+    <ko-layer>
+        <ko-image [config]="frameConfig()" />
     </ko-layer>
 </ko-stage>
+</div>
+<button (click)="save()">Save</button>
