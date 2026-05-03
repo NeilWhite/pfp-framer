@@ -30,14 +30,14 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "server": "src/main.server.ts",
+            //"server": "src/main.server.ts",
             "security": {
               "allowedHosts": []
-            },
-            "prerender": true,
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            }//,
+            // "prerender": true,
+            // "ssr": {
+            //   "entry": "src/server.ts"
+            // }
           },
           "configurations": {
             "production": {
