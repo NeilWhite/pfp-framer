@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, effect, ElementRef, OnInit, signal, viewChild, ViewChild } from '@angular/core';
 import { FrameStageComponent } from './frame-stage/frame-stage.component';
 
 const frames = [
@@ -14,10 +14,16 @@ const frames = [
 })
 export class AppComponent {
   frames = frames;
-  selectedFrame = signal<string>(frames[0]);
+  selectedFrame = signal<any>(null as any);
 
-  public selectFrame(frame: string) {
-    console.log(frame)
-    this.selectedFrame.set(frame);
+  variant = viewChild<ElementRef>('variant');
+
+  public selectFrame($event: MouseEvent, frame: string) {
+    console.log($event, frame)
+    this.selectedFrame.set($event.target);
+  }
+
+  ngAfterViewInit() {
+      this.variant()?.nativeElement.querySelector('img')?.click();
   }
 }

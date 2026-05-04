@@ -15,12 +15,11 @@ const imageSize = 512;
 export class FrameStageComponent {
   @ViewChild('stage') stage: StageComponent = null as any;
   
-  frame = input.required<string>();
-  
+  frame = input.required<any>();
   constructor() {
     effect(() => {
       this.setFrame(this.frame());
-    })
+    });
   }
 
   public configStage: StageConfig = {
@@ -101,6 +100,11 @@ export class FrameStageComponent {
   }
 
   setFrame(frameUrl: string) {
+    this.frameConfig.update((current) => ({
+      ...current,
+      image: this.frame()
+    }));
+    return;
     const image = new Image()
     image.onload = () => this.frameConfig.update((current) => ({
       ...current,

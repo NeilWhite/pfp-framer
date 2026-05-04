@@ -115,10 +115,10 @@
       <app-frame-stage [frame]="selectedFrame()"/>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
+    <div #variant class="right-side">
       <h4>Variant</h4>
       @for (frame of frames; track frame) {
-          <span><img class="variant" [src]="frame" (click)="selectFrame(frame)" width="96" height="96" /></span>
+          <span><img class="variant" [src]="frame" (click)="selectFrame($event, frame)" width="96" height="96" /></span>
       }
     </div>
   </div>
