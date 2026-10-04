@@ -2,9 +2,9 @@ import { Component, effect, ElementRef, OnInit, signal, viewChild, ViewChild } f
 import { FrameStageComponent } from './frame-stage/frame-stage.component';
 
 const frames = [
+  'UWOTC-CWA_pfp_frame_1_purple.png',
   'UWOTC-CWA_pfp_frame_1.png',
-  'UWOTC-CWA_pfp_frame_2.png',
-  'UWOTC-CWA_pfp_frame_1_purple.png'
+  'UWOTC-CWA_pfp_frame_2.png'
 ]
 
 @Component({
